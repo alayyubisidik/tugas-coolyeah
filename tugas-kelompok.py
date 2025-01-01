@@ -1,7 +1,7 @@
-# Fungsi untuk menambahkan siswa baru ke dalam dictionary
+# Fungsi untuk menambahkan mahasiswa baru ke dalam dictionary
 def add_student(dict):
-    # Meminta input NIM siswa
-    student_id = int(input("Masukkan NIM siswa: "))
+    # Meminta input NIM mahasiswa
+    student_id = int(input("Masukkan NIM mahasiswa: "))
     # Memeriksa apakah NIM sudah terdaftar dalam dictionary
     if student_id in dict:
         print("\n===========================")
@@ -9,32 +9,32 @@ def add_student(dict):
         print("===========================")
         return
 
-    # Meminta input nama dan nilai siswa
-    name = input("Masukkan nama siswa: ")
-    score = int(input("Masukkan nilai siswa: "))
+    # Meminta input nama dan nilai mahasiswa
+    name = input("Masukkan nama mahasiswa: ")
+    score = int(input("Masukkan nilai mahasiswa: "))
     
-    # Menambahkan data siswa ke dictionary
+    # Menambahkan data mahasiswa ke dictionary
     dict[student_id] = {"name": name, "score": score}
     
-    # Menampilkan pesan berhasil dan daftar siswa
+    # Menampilkan pesan berhasil dan daftar mahasiswa
     print("\n===========================")
-    print("Siswa berhasil ditambahkan.")
+    print("Mahasiswa berhasil ditambahkan.")
     print("----------------------------")
     print("Data Mahasiswa")
     display_students(dict)
     print("===========================")
 
-# Fungsi untuk menghapus siswa dari dictionary
+# Fungsi untuk menghapus mahasiswa dari dictionary
 def remove_student(dict):
-    # Meminta input NIM siswa yang akan dihapus
-    student_id = int(input("Masukkan NIM siswa yang akan dihapus: "))
+    # Meminta input NIM mahasiswa yang akan dihapus
+    student_id = int(input("Masukkan NIM mahasiswa yang akan dihapus: "))
     
     # Memeriksa apakah NIM ada dalam dictionary
     if student_id in dict:
-        # Menghapus data siswa
+        # Menghapus data mahasiswa
         del dict[student_id]
         print("\n===========================")
-        print("Siswa berhasil dihapus.")
+        print("Mahasiswa berhasil dihapus.")
         print("----------------------------")
         print("Data Mahasiswa")
         display_students(dict)
@@ -45,25 +45,25 @@ def remove_student(dict):
         print(f"NIM {student_id} tidak ditemukan.")
         print("===========================")
 
-# Fungsi untuk menampilkan semua data siswa
+# Fungsi untuk menampilkan semua data mahasiswa
 def display_students(dict):
     # Memeriksa apakah dictionary kosong
     if not dict:
-        print("Tidak ada data siswa yang tersedia.")
+        print("Tidak ada data mahasiswa yang tersedia.")
         return
     
-    # Menampilkan data siswa satu per satu
+    # Menampilkan data mahasiswa satu per satu
     for index, (student_id, details) in enumerate(dict.items(), start=1):
         print(f"{index}. NIM: {student_id}, Nama: {details['name']}, Nilai: {details['score']}")
 
-# Fungsi untuk mencari data siswa berdasarkan NIM
+# Fungsi untuk mencari data mahasiswa berdasarkan NIM
 def search_student(dict):
-    # Meminta input NIM siswa yang dicari
-    student_id = int(input("Masukkan NIM siswa yang dicari: "))
+    # Meminta input NIM mahasiswa yang dicari
+    student_id = int(input("Masukkan NIM mahasiswa yang dicari: "))
     
     # Memeriksa apakah NIM ada dalam dictionary
     if student_id in dict:
-        # Menampilkan data siswa jika ditemukan
+        # Menampilkan data mahasiswa jika ditemukan
         details = dict[student_id]
         print("\n===========================")
         print(f"NIM: {student_id}, Nama: {details['name']}, Nilai: {details['score']}")
@@ -74,7 +74,7 @@ def search_student(dict):
         print(f"NIM {student_id} tidak ditemukan.")
         print("===========================")
 
-# Fungsi untuk menghitung rata-rata nilai siswa
+# Fungsi untuk menghitung rata-rata nilai mahasiswa
 def average_score(dict):
     # Memeriksa apakah dictionary kosong
     if not dict:
@@ -83,7 +83,7 @@ def average_score(dict):
         print("===========================")
         return
     
-    # Mengambil semua nilai siswa dari dictionary
+    # Mengambil semua nilai mahasiswa dari dictionary
     scores = []
     for details in dict.values():
         scores.append(details['score'])
@@ -94,7 +94,7 @@ def average_score(dict):
     print(f"Rata-rata nilai: {avg:.2f}")
     print("===========================")
 
-# Dictionary untuk menyimpan data siswa
+# Dictionary untuk menyimpan data mahasiswa
 student_data = {}  
 
 # Loop utama program
@@ -102,10 +102,10 @@ while True:
     # Menampilkan menu utama
     print("""
 Menu Utama:
-1. Tambah Siswa
-2. Hapus Siswa
-3. Tampilkan Data Siswa
-4. Cari Siswa
+1. Tambah Mahasiswa
+2. Hapus Mahasiswa
+3. Tampilkan Data Mahasiswa
+4. Cari Mahasiswa
 5. Hitung Rata-rata Nilai
 6. Keluar
     """)
